@@ -3,8 +3,7 @@
 import type React from 'react'
 
 import { ThemeToggle } from '@/components/theme-toggle'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Info } from 'lucide-react'
+import { Github, Info } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { ProjectList } from './components/project-list'
@@ -62,7 +61,7 @@ export default function ProjectsPage() {
     <div className="container mx-auto flex flex-col gap-6 px-4 py-8">
       <Header />
 
-      <WelcomeMessage />
+      <WelcomeAndProjectInfo />
 
       <QuickStartForm
         inputValue={inputValue}
@@ -84,21 +83,58 @@ export default function ProjectsPage() {
 function Header() {
   return (
     <div className="flex items-center justify-between">
-      <h1 className="font-bold text-3xl">Prompt-to-App Builder</h1>
+      <h1 className="font-bold text-3xl">Lovable Clone</h1>
       <ThemeToggle />
     </div>
   )
 }
 
-function WelcomeMessage() {
+function WelcomeAndProjectInfo() {
   return (
-    <Alert>
-      <Info className="h-4 w-4" />
-      <AlertTitle>Welcome to Prompt-to-App Builder</AlertTitle>
-      <AlertDescription>
-        Create new projects or continue working on existing ones. Each project is a React
-        app generated from your prompts.
-      </AlertDescription>
-    </Alert>
+    <div className="rounded-lg border bg-card p-6 shadow-sm">
+      <div className="flex items-start gap-4">
+        <div className="space-y-4">
+          <div>
+            <h2 className="font-semibold text-xl">Hi there 👋</h2>
+            <p className="mt-1">
+              This is a fully functional text-to-app project built by{' '}
+              <a
+                href="https://www.linkedin.com/in/yusuf-kinatas/"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="font-medium text-[#FF6F00] hover:underline"
+              >
+                Yusuf
+              </a>{' '}
+              in less than <span className="cursor-help relative group">
+                <span className="underline decoration-dotted">24hrs</span>
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-popover text-popover-foreground text-sm py-1 px-2 rounded shadow-md whitespace-nowrap">
+                  20 hours actually
+                </span>
+              </span>, mostly vibe-coding with v0 and cursor.
+            </p>
+
+            <p className="mt-1 text-sm">
+              <a
+                href="https://github.com/yusufkinatas/lovable-clone"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="font-medium text-[#FF6F00] hover:underline"
+              >
+                <Github className="inline-block h-4 w-4" /> See the code
+              </a>
+            </p>
+          </div>
+
+          <div className="border-t pt-2">
+            <p className="text-muted-foreground">
+              A React app with a single <code className='bg-muted p-1 rounded-md'>App.tsx</code> file will be generated based on your prompts.
+            </p>
+
+         
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
