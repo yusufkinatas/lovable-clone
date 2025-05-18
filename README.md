@@ -1,5 +1,7 @@
 # Text-to-app Project
 
+> **Caveat:** This project was 95% "vibe-coded" using v0+cursor and does not necessarily represent my personal coding style, architecture, or production-level standards.
+
 A simple app that allows you to generate a single file React app from a text prompt.
 
 ## How to run locally
